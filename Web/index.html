@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <title>Dashboard</title>
+        <style>
+            body {
+                background-color: #1a202c;
+                color: #d8dee9;
+                font-family: 'Lato', sans-serif;
+            }
+
+            /* Custom CSS for postal code input */
+            #postalCode:focus {
+                background-color: #4a5568 !important;
+                color: #d8dee9 !important;
+            }
+
+            /* Custom CSS for column 2 */
+            .col-span-2 {
+                background-color: #2d3748;
+                color: #a0aec0;
+            }
+
+            /* Custom CSS for row 1 */
+            .row-1 {
+                background-color: #2d3748;
+            }
+
+            /* Custom CSS for inputs and select dropdowns in row 1 */
+            .row-1 input[type="text"],
+            .row-1 select {
+                background-color: #43597d;
+                color: #b3aaec;
+            }
+
+        </style>
+    </head>
+
+    <body class="dark">
+        <!-- Include the navbar -->
+        <div id="navbar-placeholder">
+            <nav class="sticky top-0 bg-gray-900 z-20 border-b border-gray-600">
+                <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                    <a href="index.html" class="flex items-center">
+                        <img src="https://www.svgrepo.com/show/250295/dollar.svg" class="h-8 mr-3" alt="Flowbite Logo">
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">BillWise</span>
+                    </a>
+                    <div class="flex md:order-2">
+                        <button type="button"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">Logout</button>
+                        <button data-collapse-toggle="navbar-sticky" type="button"
+                            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 text-gray-400 hover:bg-gray-700 focus:ring-gray-600"
+                            aria-controls="navbar-sticky" aria-expanded="false">
+                            <span class="sr-only">Open main menu</span>
+                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 17 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+                        id="navbar-sticky">
+                        <ul
+                            class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-gray-900 md:dark:bg-gray-800 md:dark:border-gray-700">
+                            <li>
+                                <a href="index.html"
+                                    class="block py-2 pl-3 pr-4 text-white bg-green-500 rounded md:bg-transparent md:text-green-500 md:p-0 text-green-400 hover:text-green-200"
+                                    aria-current="page">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="postalCode.html"
+                                    class="block py-2 pl-3 pr-4 text-white bg-green-500 rounded md:bg-transparent md:text-green-500 md:p-0 text-green-400 hover:text-green-200">Compare</a>
+                            </li>
+                            <li>
+                                <a href="analysis.html"
+                                    class="block py-2 pl-3 pr-4 text-white bg-green-500 rounded md:bg-transparent md:text-green-500 md:p-0 text-green-400 hover:text-green-200">Analysis</a>
+                            </li>
+                            <li>
+                                <a href="profile.html"
+                                    class="block py-2 pl-3 pr-4 text-white bg-green-500 rounded md:bg-transparent md:text-green-500 md:p-0 text-green-400 hover:text-green-200">Profile</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+        <include virtual="navbar.html"></include>
+        <div class="container mx-auto p-4">
+            <h1 class="text-3xl text-gray-300">Dashboard</h1>
+            <div class="grid grid-cols-3 gap-4 mt-4">
+                <div class="col-span-1 bg-gray-700 p-4 rounded-lg row-1">
+                    <!-- ...other fields... -->
+                    <label for="monthSelect" class="text-gray-300">Select a Month:</label>
+                    <select id="monthSelect"
+                        class="mt-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-400 focus:ring focus:ring-indigo-300 focus:ring-opacity-50 bg-gray-600 dark:bg-gray-900 text-gray-300 dark:text-gray-100">
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                    <label for="yearSelect" class="text-gray-300 mt-4">Select a Year:</label>
+                    <select id="yearSelect"
+                        class="mt-1 block w-full rounded-md border-gray-800 shadow-sm focus:border-indigo-400 focus:ring focus:ring-indigo-300 focus:ring-opacity-50 bg-gray-600 dark:bg-gray-900 text-gray-300 dark:text-gray-100">
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                    </select>
+                    <label for="postalCode" class="text-gray-300 mt-4">Postal Code:</label>
+                    <input type="text" id="postalCode"
+                        class="mt-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-400 focus:ring focus:ring-indigo-300 focus:ring-opacity-50 bg-gray-600 dark:bg-gray-900 text-gray-300 dark:text-gray-100 postal-code-input">
+                </div>
+
+                <div class="col-span-2 bg-gray-700 p-4 rounded-lg shadow-lg">
+                    <div class="rounded-lg p-4 grid grid-cols-4 gap-4">
+                        <h2 id="selectedDataHeading" class="text-lg text-gray-300 mb-2 col-span-4">Data for Selected
+                            Month and Year</h2>
+                        <div class="mb-4 col-span-1">
+                            <label for="electricityBill" class="text-gray-300">Electricity Bill:</label>
+                            <input type="text" id="electricityBill"
+                                class="mt-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-400 focus:ring focus:ring-indigo-300 focus:ring-opacity-50 bg-gray-700 dark:bg-gray-900 text-gray-300 dark:text-gray-100">
+                            <label for="electricityProvider" class="text-gray-300 mt-2">Provider:</label>
+                            <select id="electricityProvider"
+                                class="mt-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-400 focus:ring focus:ring-indigo-300 focus:ring-opacity-50 bg-gray-600 dark:bg-gray-900 text-gray-300 dark:text-gray-100">
+                                <option value="provider1">Provider 1</option>
+                                <option value="provider2">Provider 2</option>
+                                <option value="provider3">Provider 3</option>
+                            </select>
+                        </div>
+                        <div class="mb-4 col-span-1">
+                            <label for="waterBill" class="text-gray-300">Water Bill:</label>
+                            <input type="text" id="waterBill"
+                                class="mt-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-400 focus:ring focus:ring-indigo-300 focus:ring-opacity-50 bg-gray-700 dark:bg-gray-900 text-gray-300 dark:text-gray-100">
+                            <label for="waterProvider" class="text-gray-300 mt-2">Provider:</label>
+                            <select id="waterProvider"
+                                class="mt-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-400 focus:ring focus:ring-indigo-300 focus:ring-opacity-50 bg-gray-600 dark:bg-gray-900 text-gray-300 dark:text-gray-100">
+                                <option value="provider1">Provider 1</option>
+                                <option value="provider2">Provider 2</option>
+                                <option value="provider3">Provider 3</option>
+                            </select>
+                        </div>
+                        <div class="mb-4 col-span-1">
+                            <label for="gasBill" class="text-gray-300">Gas Bill:</label>
+                            <input type="text" id="gasBill"
+                                class="mt-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-400 focus:ring focus:ring-indigo-300 focus:ring-opacity-50 bg-gray-700 dark:bg-gray-900 text-gray-300 dark:text-gray-100">
+                            <label for="gasProvider" class="text-gray-300 mt-2">Provider:</label>
+                            <select id="gasProvider"
+                                class="mt-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-400 focus:ring focus:ring-indigo-300 focus:ring-opacity-50 bg-gray-600 dark:bg-gray-900 text-gray-300 dark:text-gray-100">
+                                <option value="provider1">Provider 1</option>
+                                <option value="provider2">Provider 2</option>
+                                <option value="provider3">Provider 3</option>
+                            </select>
+                        </div>
+                        <div class="mb-4 col-span-1">
+                            <label for="internetBill" class="text-gray-300">Internet Bill:</label>
+                            <input type="text" id="internetBill"
+                                class="mt-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-400 focus:ring focus:ring-indigo-300 focus:ring-opacity-50 bg-gray-700 dark:bg-gray-900 text-gray-300 dark:text-gray-100">
+                            <label for="internetProvider" class="text-gray-300 mt-2">Provider:</label>
+                            <select id="internetProvider"
+                                class="mt-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-400 focus:ring focus:ring-indigo-300 focus:ring-opacity-50 bg-gray-600 dark:bg-gray-900 text-gray-300 dark:text-gray-100">
+                                <option value="provider1">Provider 1</option>
+                                <option value="provider2">Provider 2</option>
+                                <option value="provider3">Provider 3</option>
+                            </select>
+                        </div>
+
+                        <div class="col-span-4">
+                            <button type="button" onclick="createCharts()"
+                                class="bg-indigo-600 hover:bg-indigo-800 text-gray-100 py-2 px-4 rounded">Submit</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-4">
+                <div id="electricityChartContainer" class="bg-gray-700 p-16 rounded-lg h-1\/2 hidden">
+                    <canvas id="ElectricityChart"></canvas>
+                </div>
+                <div id="waterChartContainer" class="bg-gray-700 p-16 rounded-lg h-1\/2 hidden">
+                    <canvas id="WaterChart"></canvas>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-4">
+                <div id="gasChartContainer" class="bg-gray-700 p-16 rounded-lg h-1\/2 hidden">
+                    <canvas id="GasChart"></canvas>
+                </div>
+                <div id="internetChartContainer" class="bg-gray-700 p-16 rounded-lg h-1\/2 hidden">
+                    <canvas id="InternetChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <script>
+            var chartInstances = [];
+            function getRandomValue(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            function createCharts() {
+                // destroy previous instances
+                chartInstances.forEach(function (chart) {
+                    chart.destroy();
+                });
+                // reset instances array
+                chartInstances = [];
+
+                var mockData = {
+                    electricity: getRandomValue(50, 200),
+                    water: getRandomValue(20, 100),
+                    gas: getRandomValue(30, 150),
+                    internet: getRandomValue(40, 180)
+                };
+
+                var userValues = [
+                    document.getElementById('electricityBill').value || 0,
+                    document.getElementById('waterBill').value || 0,
+                    document.getElementById('gasBill').value || 0,
+                    document.getElementById('internetBill').value || 0
+                ];
+
+                var labels = ['Electricity', 'Water', 'Gas', 'Internet'];
+
+                for (var i = 0; i < labels.length; i++) {
+                    var ctx = document.getElementById(labels[i] + 'Chart').getContext('2d');
+                    var newChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: [labels[i]],
+                            datasets: [{
+                                label: 'User Data',
+                                data: [userValues[i]],
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 1
+                            }, {
+                                label: 'Average Data',
+                                data: [mockData[labels[i].toLowerCase()]],
+                                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                                borderColor: 'rgba(153, 102, 255, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: true,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    fontColor: 'white',
+                                }
+                            }
+                        }
+                    });
+                    // add new chart to instances array
+                    chartInstances.push(newChart);
+                }
+                if (chartInstances.length > 0) {
+                    // Show the chart containers
+                    document.getElementById('electricityChartContainer').classList.remove('hidden');
+                    document.getElementById('waterChartContainer').classList.remove('hidden');
+                    document.getElementById('gasChartContainer').classList.remove('hidden');
+                    document.getElementById('internetChartContainer').classList.remove('hidden');
+                    return;
+
+                }
+            }
+
+            document.getElementById('monthSelect').addEventListener('change', createCharts);
+            document.getElementById('yearSelect').addEventListener('change', createCharts);
+        </script>
+        <script>
+            function updateSelectedDataHeading() {
+                var monthSelect = document.getElementById('monthSelect');
+                var yearSelect = document.getElementById('yearSelect');
+                var selectedMonth = monthSelect.options[monthSelect.selectedIndex].text;
+                var selectedYear = yearSelect.value;
+
+                var selectedDataHeading = document.getElementById('selectedDataHeading');
+                selectedDataHeading.textContent = `Data for ${selectedMonth} ${selectedYear}`;
+            }
+
+            document.getElementById('monthSelect').addEventListener('change', updateSelectedDataHeading);
+            document.getElementById('yearSelect').addEventListener('change', updateSelectedDataHeading);
+        </script>
+    </body>
+
+</html>
